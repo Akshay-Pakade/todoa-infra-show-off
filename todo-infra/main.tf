@@ -13,13 +13,13 @@ location = "Canada Central"
 address_space = ["10.0.0.0/16"]
 }
 
-module "subnet" {
-  depends_on = [ module.vnet ]
-source = "../modules/subnet"
-subnet_name = "merasubnet"
+module "vnet" {
+  depends_on = [ module.azurerm_resource_group ]
+source = "../modules/virtual_network"
 virtual_network_name = "myvnet"
 resource_group_name = "myapp-rg"
-address_prefixes = ["10.0.1.0/24"]
+location = "Canada Central"
+address_space = ["10.0.0.0/16"]
 }
 
 
